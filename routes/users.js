@@ -30,12 +30,6 @@ router.post("/register", function (req, res) {
   const valid = validator(req.body);
 
   if (!valid) {
-    // if (password !== password2)
-    //   validator.errors = {
-    //     instancePath: "/passwords didn't match",
-    //     message: "",
-    //   };
-    console.log(validator.errors);
     res.render("register", {
       errors: validator.errors,
       user: null,
@@ -83,7 +77,7 @@ router.post("/register", function (req, res) {
  */
 router.get("/login", function (req, res) {
   if (res.locals.user) res.redirect("/");
-
+  
   res.render("login", {
     title: "Log in",
   });

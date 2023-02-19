@@ -22,10 +22,12 @@ router.get("/", isAdmin, function (req, res) {
   });
 
   Product.find(function (err, products) {
-    res.render("admin/products", {
-      products: products,
-      count: count,
-    });
+    setTimeout(() => {
+      res.render("admin/products", {
+        products: products,
+        count: count,
+      });
+    }, 3000);
   });
 });
 

@@ -58,10 +58,10 @@
 
           <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item position-relative me-2">
-              <a class="nav-link " href="/cart/checkout">
-                 <% if (typeof cart !== "undefined") { %>
-                <span class="cart-count"> <%= cart.length %></span> <% } else {%> <span class="cart-count">0</span> <%
-                } %> 
+              <a class="nav-link" href="/cart/checkout">
+                <% if (typeof cart !== "undefined") { %>
+                <span class="cart-count"> <%= cart.length %></span> <% } else
+                {%> <span class="cart-count">0</span> <% } %>
                 <img class="img-cart" src="/images/cart-2.png" alt="" />
               </a>
             </li>

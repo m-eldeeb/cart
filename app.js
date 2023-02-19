@@ -26,7 +26,7 @@ app.use(fileUpload({ createParentPath: true }));
 app.set("view engine", "ejs");
 
 // set public folder
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // set global errors variable
 app.locals.errors = null;
@@ -75,7 +75,6 @@ app.use(
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.message = req.flash();
-
   next();
 });
 
@@ -97,8 +96,8 @@ app.use("/admin/pages", adminPages);
 app.use("/admin/categories", adminCategories);
 app.use("/admin/products", adminProducts);
 app.use("/products", products);
-app.use("/users", users);
 app.use("/cart", cart);
+app.use("/users", users);
 app.use("/", pages);
 
 // app.get("/", (req, res) => {
