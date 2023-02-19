@@ -26,7 +26,7 @@ app.use(fileUpload({ createParentPath: true }));
 app.set("view engine", "ejs");
 
 // set public folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // set global errors variable
 app.locals.errors = null;
@@ -113,10 +113,6 @@ app.use("/", pages);
 //   res.render("flash");
 // });
 
-app.listen(PORT, () => {
-  console.log("server listening on port " + PORT + "........");
-});
-
 mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.MONGO)
@@ -126,3 +122,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+app.listen(PORT, () => {
+  console.log("server listening on port " + PORT + "........");
+});
