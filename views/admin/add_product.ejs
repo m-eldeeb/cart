@@ -1,0 +1,63 @@
+<%- include('../layouts/adminheader.ejs') -%>
+
+<h2 class="page-title mb-5">Add a product</h2>
+
+<a href="/admin/products" class="btn btn-primary">Back to all products</a>
+<br /><br />
+
+<form
+  method="POST"
+  action="/admin/products/add-product"
+  encType="multipart/form-data"
+>
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      name="title"
+      value="<%= title %>"
+      placeholder="Title"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea
+      name="desc"
+      class="form-control"
+      cols="30"
+      rows="10"
+      placeholder="Description"
+    >
+<%= desc %></textarea
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Category</label>
+    <select name="category" class="form-control">
+      <% categories.forEach(function(cat){ %>
+      <option value="<%= cat.slug %>"><%= cat.title %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <input
+      type="text"
+      class="form-control"
+      name="price"
+      value="<%= price %>"
+      placeholder="Price"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Image</label>
+    <input type="file" class="form-control" name="image" id="input-img" accept="image/*" />
+    <img src="#" id="imgPreview" alt=""  />
+  </div>
+  <button type="submit" class="btn border border-primary">Submit</button>
+</form>
+<%-include('../layouts/adminfooter.ejs') -%>

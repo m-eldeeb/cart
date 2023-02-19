@@ -1,0 +1,44 @@
+<%- include('../layouts/adminheader.ejs') -%>
+
+<h2 class="page-title mb-3">Pages</h2>
+<div class="top">
+
+  <a href="/admin/pages/add-page" class="btn btn-primary">Add a new page</a>
+</div>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pages.forEach(function(page,index){ %>
+    <tr id="id_<%= page._id %>" class="<%= page.slug %>">
+      <td><%= index+1 %></td>
+      <td><%= page.title %></td>
+      <td>
+        <a
+          class="btn btn-primary mx-2"
+          href="/admin/pages/edit-page/<%= page._id %>"
+          >Edit</a
+        >
+        <% if (page.slug == "home") { %> <% } else {%>
+
+        <a
+          class="btn btn-danger"
+          href="/admin/pages/delete-page/<%= page._id %>"
+          id="confirm"
+          >Delete</a
+        >
+
+        <% }%>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%-include('../layouts/adminfooter.ejs') -%>
